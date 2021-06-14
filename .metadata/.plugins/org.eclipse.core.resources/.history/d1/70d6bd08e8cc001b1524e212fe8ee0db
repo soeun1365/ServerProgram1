@@ -1,0 +1,17 @@
+package batch;
+
+import org.quartz.Job;
+import org.quartz.JobExecutionContext;
+import org.quartz.JobExecutionException;
+
+import dao.MemberDAO;
+
+public class PlusPointTen implements Job {
+
+	@Override
+	public void execute(JobExecutionContext arg0) throws JobExecutionException {
+	
+		MemberDAO.getInstance().plusPointTen();
+		System.out.println("포상자.txt 파일이 생성되었습니다.");
+	}
+}

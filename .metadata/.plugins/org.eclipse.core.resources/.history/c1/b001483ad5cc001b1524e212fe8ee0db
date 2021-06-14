@@ -1,0 +1,31 @@
+package controller;
+
+import command.member.MemberCommand;
+import command.member.SelectMemberListCommand;
+
+public class MemberCommandMapper {
+
+	private static MemberCommandMapper instance = new MemberCommandMapper();
+	private MemberCommandMapper() {}
+	public static MemberCommandMapper getInstance() {
+		if (instance == null) {
+			instance = new MemberCommandMapper();
+		}
+		return instance;
+	}
+	
+	// Command를 반환하는 메소드
+	// 모든 Command는 인터페이스 MemberCommand를 구현하는 클래스이므로,
+	// 모든 Command는 MemberCommand 타입을 가진다.
+	public MemberCommand getCommand(String cmd) {
+		MemberCommand command = null;
+		switch (cmd) {
+		case "selectMemberList.do":
+			command = new SelectMemberListCommand();
+			break;
+
+		}
+		return command;
+	}
+	
+}

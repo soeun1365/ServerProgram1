@@ -1,0 +1,24 @@
+package batch;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
+
+import org.quartz.Job;
+import org.quartz.JobExecutionContext;
+import org.quartz.JobExecutionException;
+
+import dao.MemberDAO;
+import dto.MemberDTO;
+
+public class Top3StudentJob implements Job {
+
+	@Override
+	public void execute(JobExecutionContext arg0) throws JobExecutionException {
+	
+			MemberDAO.getInstance().plusPointTen();
+			System.out.println("포상자.txt 파일이 생성되었습니다.");
+	}
+}

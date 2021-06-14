@@ -1,0 +1,26 @@
+package command.member;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import common.ModelAndView;
+import dto.MemberDTO;
+
+public class SelectMemberListCommand implements MemberCommand {
+
+	@Override
+	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) {
+		MemberDTO dto = new MemberDTO();
+		List<MemberDTO> list = BoardDAO.getInstance().selectList(map);
+		
+		
+		
+		// 응답View로 전달할 데이터
+		request.setAttribute("list", list);
+
+		ModelAndView mav = new ModelAndView("/board/listBoard.jsp", false);  // 포워드 이동
+		
+		return mav;
+	}
+
+}

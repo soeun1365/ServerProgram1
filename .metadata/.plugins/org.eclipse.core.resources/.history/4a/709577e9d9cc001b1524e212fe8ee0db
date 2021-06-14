@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>login</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0 auto;
+		}
+		form, input{
+			width: 200px;
+		}
+	</style>
+</head>
+<body>
+	
+	<br>
+	<form>
+	
+	<h1>회원 관리 프로그램</h1>
+		<input type="text" placeholder="아이디"><br>
+		<input type="text" placeholder="이름"><br>
+		<br>
+		<button>로그인</button>
+		<a href="">회원가입</a>
+	</form>
+</body>
+</html>

@@ -1,0 +1,11 @@
+package dto;
+
+public class MemberDTO {
+	private long no;
+	private String id;
+	private String name;
+	private String grade;
+	private int point;
+	
+	
+}

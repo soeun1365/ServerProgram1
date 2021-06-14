@@ -1,0 +1,36 @@
+package batch;
+
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
+
+import org.quartz.SchedulerException;
+
+@WebListener
+public class CronSchedulerListener implements ServletContextListener {
+    
+	// field
+	CronScheduler cronScheduler;
+	
+	// constructor
+	public CronSchedulerListener() { }
+	
+	// method
+	@Override
+    public void contextDestroyed(ServletContextEvent sce)  { 
+    	try {
+    		cronScheduler.scheduler.clear();
+    		cronScheduler.scheduler.shutdown();
+		} catch (SchedulerException e) {
+			e.printStackTrace();
+		}
+    }
+	@Override
+    public void contextInitialized(ServletContextEvent sce)  { 
+    	System.out.println("배치프로그램이 시작되었습니다.");
+    	cronScheduler = new CronScheduler("\n" + "0 33 18 1/1 * ? *", plusPointTen.class);	// 실행할 동작은 Top3StudentJob.class에 있다.
+    	System.out.println("회원 포인트 증가 완료 : 5건");
+    	cronScheduler.execute();
+    }
+	
+}

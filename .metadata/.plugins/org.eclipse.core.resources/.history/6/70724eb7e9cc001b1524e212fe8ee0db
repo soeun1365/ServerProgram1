@@ -1,0 +1,29 @@
+package command.member;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import common.ModelAndView;
+import dao.MemberDAO;
+import dto.MemberDTO;
+
+public class JoinCommand implements MemberCommand {
+
+	@Override
+	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) {
+		String id = request.getParameter("id");
+		String name = request.getParameter("name");
+		
+		MemberDTO dto = new MemberDTO();
+		dto.setId(id);
+		dto.setName(name);
+		
+		int result = MemberDAO.getInstance().joinMember(dto);
+		
+		if() {
+			
+		}
+		return null;
+	}
+
+}
